@@ -1,0 +1,60 @@
+<?php
+$db_host = "localhost";
+$db_username = "myapgcjt_hydroponic";
+$db_password = "6zM3YXMusH~a";
+$db_name = "myapgcjt_hydroponic";
+$link = mysqli_connect($db_host, $db_username, $db_password, $db_name);
+
+if (!$link) {
+    die(mysqli_error($link));
+}                                                                                     
+
+$query = "Select * from Plants";
+
+$result = mysqli_query($link, $query);
+$row = mysqli_fetch_array($result);
+        if(!empty(($row))){
+            $id = $row['id_plant'];
+        } 
+echo "hi";   
+echo $id;
+?>
+
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyDN6zDUHUdQ90OjdNd8KOr7FFRH_TGG3cw",
+    authDomain: "hydrophonic-app.firebaseapp.com",
+    databaseURL: "https://hydrophonic-app.firebaseio.com",
+    projectId: "hydrophonic-app",
+    storageBucket: "hydrophonic-app.appspot.com",
+    messagingSenderId: "499375944304",
+    appId: "1:499375944304:web:520227c12471f4ec2fbab5",
+    measurementId: "G-ZF1314QC0Y"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  const db = firebase.database();
+</script>
+
+<script src="test2.js"></script>
+
+   
+<body>        
+  <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-database.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<form method="post" enctype="multipart/form-data" id="textform">
+      <input id="id" value="<?php echo $id ?>">
+      <span>Email: </span>    <input name="email" type="text" id="email"> 
+      <input name="add" type="submit" id="add" value="Add">
+            
+       <ul id="feedback-list"></ul> 
+    </form>
+
+</body>    

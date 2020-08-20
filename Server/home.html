@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="link/bootstrap.min.css" rel="stylesheet">
+        <script src="link/jquery-3.4.1.min.js"></script> 
+        <script src="link/bootstrap.min.js"></script> 
+        
+        <script>
+            $(document).ready(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "https://hydroponic.myapplicationdev.com/webservices/retrieve_all.php",
+                    cache: false,
+                    dataType: "JSON",
+                    success: function (response) {
+                        var arrayImages = [];
+                        var message = "<tr><th>Student ID</th><th>First Name</th><th>Last Name</th></tr>";
+                        for (i = 0; i < response.length; i++) {
+                            arrayImages.push(response[i])
+                            message += "<tr><td>" + response[i].student_id + "</td>"
+                                    + "<td>" + response[i].first_name + "</td>"
+                                    + "<td>" + response[i].last_name + "</td></tr>";
+                        }
+                        $("#studentTable").html(message);
+                    },
+                    error: function (obj, textStatus, errorThrown) {
+                        console.log("Error " + textStatus + ": " + errorThrown);
+                    }
+                });
+            });
+        </script>
+        
+       
+        <title>FYP</title>
+        
+        <style>
+            #cardView{
+                width: 18rem;
+            
+            }
+            
+            
+            
+        </style>
+        
+    </head>
+    <body>
+        <?php include "navbar.php"; ?>
+        
+                <div class="container">
+                    <?php
+                    $count = 0;
+                    for ($y = 0; $y<=10 ; $y++) {   ?>
+                        <div class="row">
+                       <?php for ($x = 0; $x < 3; $x++) { 
+                            if($array[$count] != null ){ ?>
+                                <div class="col">
+                            <div class="card" id="cardView">
+                                <a href="https://hydroponic.myapplicationdev.com/webservices/details.php">
+                                <img class="card-img" id="cardImg"  src="images/A.jpg" alt="Card image">
+                                </a>
+                                <div class="card-img-overlay">
+                                    <p class="card-text" id="cardText">I'm text that has a background image!</p>
+                                </div>
+                            </div>
+                        </div>
+                                
+                         <?php   }else{break;}?>
+               
+                    
+                        </div>
+                        <?php } ?>
+                     <?php }?>
+                    
+                </div>
+           
+    </body>
+</html>

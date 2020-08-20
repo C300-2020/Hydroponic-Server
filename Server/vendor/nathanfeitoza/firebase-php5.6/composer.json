@@ -1,0 +1,46 @@
+{
+    "name": "nathanfeitoza/firebase-php5.6",
+    "description": "Firebase Admin SDK",
+    "keywords": ["firebase", "google", "sdk", "api", "database"],
+    "homepage": "https://github.com/nathanfeitoza/firebase-php5.6",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jérôme Gamez",
+            "homepage": "https://github.com/jeromegamez"
+        },
+        {
+            "name": "Nathan Feitoza",
+            "homepage": "https://github.com/nathanfeitoza"
+        }
+    ],
+    "require": {
+        "ext-mbstring": "*",
+        "fig/http-message-util": "^1.1",
+        "google/auth": "^0.11.0",
+        "guzzlehttp/guzzle": "^6.2.1",
+        "nathanfeitoza/firebase-tokens-php-5.6": "*",
+        "lcobucci/jwt": "^3.2",
+        "mtdowling/jmespath.php": "^2.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.0",
+        "friendsofphp/php-cs-fixer": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Firebase\\": "src/Firebase"
+        },
+        "files": [
+            "src/Firebase.php"
+        ]
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    }
+}
